@@ -18,4 +18,9 @@ class SessionsController < ApplicationController
     sign_out
     redirect_to root_url
   end
+
+  def sign_out
+    self.current_user = nil
+    cookies.delete(:remember_token)
+  end
 end
